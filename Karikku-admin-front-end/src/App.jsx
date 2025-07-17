@@ -7,6 +7,7 @@ import HomePage from './Component/HomePage/HomePage'
 import Login from './Component/Login/Login'
 import Sidebar from './Component/Common/SideBar/Sidebar'
 import AddnewProduct from './Component/AddNewProduct/AddnewProduct'
+import AddStokes from './Component/AddStocks/AddStokes'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
           <Route path='/' element={<Login />} />
           <Route path='/Sidebar' element={<Sidebar />} />
           <Route path='/Add-product' element={<AddnewProduct />} />
+          <Route path='/Add-Stokes' element={<AddStokes/>} />
 
 
         </Routes>
