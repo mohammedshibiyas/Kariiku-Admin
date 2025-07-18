@@ -1,7 +1,7 @@
 import React from 'react'
 import './AddnewProduct.scss'
-import Sidebar from '../Common/SideBar/Sidebar'
-import Navbar from '../Common/Navbar/Navbar'
+import Sidebar from '../../Common/SideBar/Sidebar'
+import Navbar from '../../Common/Navbar/Navbar'
 
 const AddnewProduct = () => {
     return (

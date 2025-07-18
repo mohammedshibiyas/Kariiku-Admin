@@ -1,17 +1,20 @@
 import React, { useState } from 'react'
 import './AddStokes.scss'
-import Sidebar from '../Common/SideBar/Sidebar'
-import Navbar from '../Common/Navbar/Navbar'
+import Sidebar from '../../Common/SideBar/Sidebar'
+import Navbar from '../../Common/Navbar/Navbar'
 import { CiSearch } from "react-icons/ci";
+import AddBrandModal from '../../Themes/AddBrandModal/AddBrandModal';
 
 const AddStokes = () => {
 
     const [searchTerm, setSearchTerm] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
+    const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
+
     const itemsPerPage = 10;
 
 
-    const brandsData = [
+    const [brandsData, setBrandsData] = useState([ // Make brandsData stateful
         { id: 1, name: 'Karikku', brandId: 'Karikku2134', createdTime: '13/05/2025', totalProducts: 26 },
         { id: 2, name: 'Karikku', brandId: 'Karikku2134', createdTime: '13/05/2025', totalProducts: 26 },
         { id: 3, name: 'Karikku', brandId: 'Karikku2134', createdTime: '13/05/2025', totalProducts: 26 },
@@ -22,7 +25,7 @@ const AddStokes = () => {
         { id: 8, name: 'Karikku', brandId: 'Karikku2134', createdTime: '13/05/2025', totalProducts: 26 },
         { id: 9, name: 'Karikku', brandId: 'Karikku2134', createdTime: '13/05/2025', totalProducts: 26 },
         { id: 10, name: 'Karikku', brandId: 'Karikku2134', createdTime: '13/05/2025', totalProducts: 26 },
-    ];
+    ]);
 
     // Filter brands based on search term
     const filteredBrands = brandsData.filter(brand =>
@@ -39,6 +42,34 @@ const AddStokes = () => {
     const handlePageChange = (pageNumber) => {
         setCurrentPage(pageNumber);
     };
+
+
+
+    // Modal handlers
+    const handleOpenModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
+
+    const handleAddBrand = (brandName) => {
+        // Generate a new brand ID (you can implement your own logic)
+        const newBrandId = `${brandName.replace(/\s+/g, '')}${Math.floor(Math.random() * 10000)}`;
+        const currentDate = new Date().toLocaleDateString('en-GB');
+
+        const newBrand = {
+            id: brandsData.length + 1,
+            name: brandName,
+            brandId: newBrandId,
+            createdTime: currentDate,
+            totalProducts: 0
+        };
+
+        setBrandsData([...brandsData, newBrand]);
+    };
+
 
 
 
@@ -68,7 +99,8 @@ const AddStokes = () => {
                                     </p>
 
                                     <p className='price'>
-                                        14
+                                        {brandsData.length}
+
                                     </p>
 
                                 </div>
@@ -89,13 +121,12 @@ const AddStokes = () => {
 
                         <div className="brands-table-section">
                             <div className="table-header">
+                                <h3>Brands </h3>
+
                                 <div className="search-section">
-                                    <span className='Search '>
-                                        Brands  :
-                                    </span>
 
                                     <CiSearch />
-                                    
+
                                     <input
                                         type="text"
                                         placeholder="Search Brand"
@@ -103,12 +134,14 @@ const AddStokes = () => {
                                         vikkue={searchTerm}
                                         onChange={(e) => setSearchTerm(e.target.value)}
                                     />
-                                    
-                               
+
+
+
+
 
                                 </div>
                                 <div className="table-actions">
-                                    <button className="add-brand-btn">Add Brand</button>
+                                    <button className="add-brand-btn" onClick={handleOpenModal}>Add Brand</button>
                                     <button className="filters-btn">
                                         <span>Filters</span>
                                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -119,9 +152,9 @@ const AddStokes = () => {
                             </div>
 
                             <div className="table-container">
-                                <table className="brands-table">
+                                <table className="brands-table" >
                                     <thead>
-                                        <tr>
+                                        <tr >
                                             <th>Sl.No.</th>
                                             <th>Brand Name</th>
                                             <th>Brand Id</th>
@@ -173,7 +206,12 @@ const AddStokes = () => {
                             </div>
                         </div>
 
-
+                        {/* Add Brand Modal */}
+                        <AddBrandModal
+                            isOpen={isModalOpen}
+                            onClose={handleCloseModal}
+                            onAddBrand={handleAddBrand}
+                        />
                     </div>
                 </div>
             </div>

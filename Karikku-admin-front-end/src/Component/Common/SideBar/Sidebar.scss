@@ -121,4 +121,63 @@
             }
         }
     }
+    // Add these styles to your existing Sidebar.scss file
+
+.dashboard-btn {
+    transition: all 0.3s ease;
+    
+    &.active {
+        background-color: #8B5CF6; // Violet color
+        color: white;
+        border-radius: 8px;
+        
+        .home {
+            color: white;
+        }
+        
+        span {
+            color: white;
+            font-weight: 600;
+        }
+        
+        &:hover {
+            background-color: #7C3AED; // Darker violet on hover
+        }
+    }
+    
+    &:hover:not(.active) {
+        background-color: #F3F4F6; // Light gray hover for non-active items
+    }
+}
+
+.inventory {
+    table {
+        tr.head {
+            transition: all 0.3s ease;
+            
+            &.active {
+                background-color: #8B5CF6; // Violet color
+                color: white;
+                border-radius: 8px;
+                
+                .icon {
+                    color: white;
+                }
+                
+                .name {
+                    color: white;
+                    font-weight: 600;
+                }
+                
+                &:hover {
+                    background-color: #7C3AED; // Darker violet on hover
+                }
+            }
+            
+            &:hover:not(.active) {
+                background-color: #F3F4F6; // Light gray hover for non-active items
+            }
+        }
+    }
+}
 }
