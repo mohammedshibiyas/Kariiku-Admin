@@ -3,7 +3,7 @@ import './AddnewProduct.scss'
 import Sidebar from '../../Common/SideBar/Sidebar'
 import Navbar from '../../Common/Navbar/Navbar'
 
-const AddnewProduct = () => {
+const AddnewProduct = ({ onClose }) => {
     return (
         <div className='NewproductWrapper'>
             <div className="container-fluid">
@@ -130,7 +130,7 @@ const AddnewProduct = () => {
                                     </div>
                                 </div>
                                 <div className="buttons">
-                                    <button className='close-btn'>close</button>
+                                    <button className='close-btn' onClick={onClose}>close</button>
                                     <button className='submit'>Submit</button>
                                 </div>
                                 

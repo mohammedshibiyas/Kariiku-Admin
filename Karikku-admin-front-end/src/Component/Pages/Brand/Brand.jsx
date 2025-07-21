@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import './AddStokes.scss'
+import './Brand.scss'
 import Sidebar from '../../Common/SideBar/Sidebar'
 import Navbar from '../../Common/Navbar/Navbar'
 import { CiSearch } from "react-icons/ci";
 import AddBrandModal from '../../Themes/AddBrandModal/AddBrandModal';
 
-const AddStokes = () => {
+const Brand = () => {
 
     const [searchTerm, setSearchTerm] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
@@ -219,4 +219,4 @@ const AddStokes = () => {
     )
 }
 
-export default AddStokes
+export default Brand
