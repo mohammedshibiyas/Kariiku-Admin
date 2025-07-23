@@ -10,6 +10,7 @@ import AddnewProduct from './Component/Pages/AddNewProduct/AddnewProduct'
 import Products from './Component/Pages/Products/Products'
 import Category from './Component/Pages/Category/Category'
 import Brand from './Component/Pages/Brand/Brand'
+import SalesOrders from './Component/Pages/SalesOrder/SalesOrder'
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
           <Route path='/Brand' element={<Brand  />} />
           <Route path='/Products' element={<Products/>} />
           <Route path='/Category' element={<Category/>} />
+          <Route path='/Sales-order' element={<SalesOrders/>} />
 
 
 

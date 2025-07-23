@@ -64,7 +64,8 @@ const Login = () => {
                         </div>
 
                         <div className="remember-me">
-                            <input
+                          <div className='remeber-check'>
+                              <input
                                 type="checkbox"
                                 id="rememberMe"
                                 name="rememberMe"
@@ -72,6 +73,7 @@ const Login = () => {
                                 onChange={handleChange}
                             />
                             <label htmlFor="rememberMe">Remember me for 30 days</label>
+                          </div>
 
                             <button
                                 type="button"
